@@ -1,4 +1,3 @@
-
 package controller;
 
 import java.util.ArrayList;
@@ -12,7 +11,7 @@ public class studentManager {
         ArrayList<Student> listSt = new ArrayList<>();;
         String types;
         do {
-            System.out.println("Nhap lua chon ban muon:\n 1: Them hoc sinh\n 2:Xoa hoc sinh\n 3: Sua hoc sinh\n 4: Tim theo ten\n 5: Thoat\n");
+            System.out.println("Nhap lua chon ban muon:\n 1: Them hoc sinh\n 2:Xoa hoc sinh\n 3: Sua hoc sinh\n 4: Danh sach hoc sinh\n 5: Thoat\n");
             types = sc.nextLine();
             switch (types) {
                 case "1":
@@ -26,6 +25,7 @@ public class studentManager {
                     System.out.println("Ok");
                     break;
                 case "2":
+                    // xoas sv dua vao id
                     System.out.println("Nhap ten hoc sinh muon xoa:");
                     String dname = sc.nextLine();
                     for (Student student : listSt) {
@@ -37,6 +37,7 @@ public class studentManager {
                     }
                     break;
                 case "3":
+                    // xoa sinh vien bang id
                     System.out.println("Nhap ten hoc sinh can sua thong tin");
                     String cname = sc.nextLine();
                     for (Student student : listSt) {
@@ -58,13 +59,12 @@ public class studentManager {
                     }
                     break;
                 case "4":
-                    System.out.println("Nhap ten hoc sinh: ");
-                    String sname = sc.nextLine();
+                    System.out.println("Danh sach hoc sinh: ");
                     for (Student student : listSt) {
-                        if (student.getName().equals(sname)) {
-                            System.out.println("id: " + student.getId() + " name: " + student.getName() + " age: " + student.getAge() + " major: " + student.getMajor());
-                            break;
-                        }
+                        System.out.println("id: " + student.getId() +
+                                " name: " + student.getName() + 
+                                " age: " + student.getAge() + 
+                                " major: " + student.getMajor());
                     }
                     break;
                 case "5":
@@ -74,6 +74,11 @@ public class studentManager {
                 default:
                     System.out.println("Nhap sai lua chon, hay nhap lai!");
                     break;
+                    //tim thong tin sinh vien
+                    // 1 ham string luu ten nguoi nhap
+                    // 1 ham string luu ten trong day cu 
+                    //search.toLowerCase():chuyen ve chu thuong
+                    //name.toLowerCase().trim();chuyen ve chu  thuong va bo khoang trang
             }
 
         } while (!types.equals("5"));
